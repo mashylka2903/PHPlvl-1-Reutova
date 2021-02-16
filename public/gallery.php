@@ -15,7 +15,7 @@ function ($image) use ($path) {
 <?php
 
 foreach ($images as $image) :
-    $imgUrl = "/img/{$image}";
+    $imgUrl = "public_html/img/{$image}";
 
 ?>
 

@@ -2,9 +2,10 @@
 
 require_once ENGINE_DIR . "db.php";
 
-function getMenu(): array {
+function getProducts() {
+    
 
-    $sql = 'SELECT * FROM menu';
+    $sql = 'SELECT * FROM products';
 
     return query($sql);
     
