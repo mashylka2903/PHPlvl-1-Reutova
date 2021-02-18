@@ -7,3 +7,4 @@ define("DB_DIR", ROOT_DIR . "/db/");
 define("PUBLIC_DIR", ROOT_DIR . "/public/");
 define("PUBLIC_HTML_DIR", PUBLIC_DIR . "/public_html/");
 define("IMG_DIR", PUBLIC_HTML_DIR . "/img/");
+define("VIEWS_DIR", ROOT_DIR . "/views/");

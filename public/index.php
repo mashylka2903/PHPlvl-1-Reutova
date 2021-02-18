@@ -10,7 +10,7 @@ $products = getProducts();
 
 
 $menu = getMenu();
-//displayMenu($menu);
+//displayMenu($menu); 
 
 
 ?>

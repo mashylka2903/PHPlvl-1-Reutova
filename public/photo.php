@@ -1,31 +1,11 @@
 <?php
-
 include_once __DIR__ . "/../config/main.php";
-require_once ENGINE_DIR . "db.php";
+include_once ENGINE_DIR . "db.php";
 
-function getPhoto() {
+$id = (int) $_GET['id'];
 
-    $sql = 'SELECT * FROM photos';
+if ($image = query ("SELECT * FROM photos WHERE id = {$id}")[0]) { //0 - доступ к первому элементу массива
+    execute ("UPDATE photos SET views = views + 1 WHERE id = {$id}"); //обязательно where чтобы добавлялись элемегту, а не всей базе
 
-    return query($sql);
-    
 }
-
-?>
-
-<?php
-
-$images = getPhoto();
-
-foreach ($images as $image) :
-    $imgUrl = $image['link'];
-
-?>
-
-<a href = "<?=$imgUrl?>" target='blank'>
-<img src="<?=$imgUrl?>" height='150'>
-
-
-</a>
-
-<?php endforeach;?>
+include VIEWS_DIR . "gallery/photo.php";

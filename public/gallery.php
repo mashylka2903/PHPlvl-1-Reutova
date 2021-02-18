@@ -1,28 +1,15 @@
 <?php
-
 include_once __DIR__ . "/../config/main.php";
-$path = 'IMG_DIR';
-$images = array_filter (
-    scandir(IMG_DIR),
+include_once ENGINE_DIR . "db.php";
 
-
-function ($image) use ($path) {
-    return !is_dir(IMG_DIR . $image);
+/*function getFiles() {
+    $sql = 'SELECT * FROM photos';
+    return query($sql);    
 }
-);
-?>
 
-<?php
+$images = getFiles(IMG_DIR); мы можем вместо этого использовать функцию query из db.php */
 
-foreach ($images as $image) :
-    $imgUrl = "public_html/img/{$image}";
+$images = query("SELECT * FROM photos ORDER BY views desc");
 
-?>
+include VIEWS_DIR . "gallery/gallery.php";
 
-<a href = "<?=$imgUrl?>" target='blank'>
-<img src="<?=$imgUrl?>" height='150'>
-
-
-</a>
-
-<? endforeach;?>
