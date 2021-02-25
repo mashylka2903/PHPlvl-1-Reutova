@@ -4,8 +4,8 @@ require_once ENGINE_DIR . "db.php";
 
 function getMenu(): array {
 
-    $sql = 'SELECT * FROM menu';
+    $sql = 'SELECT * FROM menu ORDER BY orde';
 
-    return query($sql);
+    return queryAll($sql);
     
 }
